@@ -1,0 +1,35 @@
+@import "../assets/scss/settings";
+
+.homepage {
+  &__filters {
+    height: 100px;
+    width: 100%;
+    background-color: $brewdog-black;
+  }
+  &__table {
+    width: 100%;
+    max-width: $content-max-width;
+    margin: 0 auto;
+    &__header {
+      color: $brewdog-grey;
+      font-weight: $font-weight-bold;
+      margin: $medium-margin 0 $small-margin;
+      display: flex;
+      &__paginator {
+        display: flex;
+        margin-left: auto;
+        &__page {
+          margin-left: $smaller-margin;
+          &--selected {
+            color: $brewdog-yellow;
+          }
+        }
+      }
+    }
+    &__list {
+      & > * {
+        margin-bottom: $smaller-margin;
+      }
+    }
+  }
+}
