@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import { BrowserRouter, Route } from "react-router-dom";
 import Homepage from "./homepage/Homepage";
 import Details from "./details/details";
@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div className="app">
           <Header/>
           <Route exact path="/" component={Homepage} />
           <Route path="/details/:id" component={Details} />

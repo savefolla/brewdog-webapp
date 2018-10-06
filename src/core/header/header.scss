@@ -1,0 +1,34 @@
+@import "../../assets/scss/settings";
+
+.header {
+  height: 80px;
+  background-color: $brewdog-black;
+  &__links {
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    max-width: $content-max-width;
+    a {
+      color: $brewdog-white;
+      text-decoration: none;
+      border: 1px solid $brewdog-white;
+      padding: $smallest-margin $smaller-margin;
+      margin-right: $small-margin;
+      opacity: .7;
+      &.active {
+        opacity: 1;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    & > *:first-child {
+      margin-right: auto;
+    }
+    &__logo {
+      color: $brewdog-yellow;
+      font-size: $font-size-biggest;
+    }
+  }
+}

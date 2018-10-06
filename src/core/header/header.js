@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+import "./header.scss";
+import {withRouter} from "react-router";
 
 class Header extends Component {
   render() {
     return (
-      <div>
-        <Link to="/">Tutte le birre</Link>
-        <Link to="/details">Una birra random</Link>
-        <Link to="/favorites">Preferiti</Link>
+      <div className="header">
+        <div className="header__links">
+          {this.props.location.pathname === '/' ? <div className="header__links__logo">Brewdog</div> : <NavLink exact={true} to="/">Tutte le birre</NavLink>}
+          <NavLink to="/details">Una birra random</NavLink>
+          <NavLink to="/favorites">Preferiti</NavLink>
+        </div>
       </div>
     );
   }
 }
 
-export default Header;
+export default withRouter(Header);
