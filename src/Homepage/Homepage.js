@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BeerCard from "../Shared/BeerCard/BeerCard";
 import "./Homepage.scss";
 import Request from 'request';
+import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 
 class Homepage extends Component {
   beers = [];
@@ -22,7 +23,7 @@ class Homepage extends Component {
     return (
       <div className='homepage'>
         <div className='homepage__filters'></div>
-        {this.state.busy ? <div className='loading-spinner'></div> : <div className='homepage__table'>
+        {this.state.busy ? <LoadingSpinner /> : <div className='homepage__table'>
           <div className='homepage__table__header'>
             <div className='homepage__table__header__total'>{this.state.beers.length} birre</div>
             {/*<div className='homepage__table__header__paginator'>
