@@ -1,0 +1,18 @@
+@import "../assets/scss/settings";
+
+.favorites {
+  width: 100%;
+  max-width: $content-max-width;
+  margin: 0 auto;
+  &__total {
+    margin: $medium-margin 0 $small-margin;
+    color: $brewdog-grey;
+    font-size: $font-size-bigger;
+    font-weight: $font-weight-bold;
+  }
+  &__list {
+    & > * {
+      margin-bottom: $smaller-margin;
+    }
+  }
+}

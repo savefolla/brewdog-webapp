@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { BrowserRouter, Route } from "react-router-dom";
-import Homepage from "./homepage/Homepage";
-import Details from "./details/details";
-import Favorites from "./favorites/Favorites";
-import Header from "./core/header/header";
+import Homepage from "./Homepage/Homepage";
+import Details from "./Details/Details";
+import Favorites from "./Favorites/Favorites";
+import Header from "./Core/Header/Header";
 
 class App extends Component {
   render() {
