@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Request from "request";
+import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 
 class Details extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Details extends Component {
   }
   getBeer() {
     Request(`https://api.punkapi.com/v2/beers/${this.props.match.params.id}`, (error, response, body) => {
+      if (error) return;
       const beer = JSON.parse(body)[0];
       this.setState({
         beer,
@@ -31,7 +33,9 @@ class Details extends Component {
   }
   render() {
     return (
-      <div>{this.state.beer.name}</div>
+      <div className='details'>
+        {this.state.busy ? <LoadingSpinner/> : this.state.beer.name}
+      </div>
     );
   }
 }

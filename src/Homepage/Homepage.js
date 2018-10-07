@@ -5,7 +5,6 @@ import Request from 'request';
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 
 class Homepage extends Component {
-  beers = [];
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +12,7 @@ class Homepage extends Component {
       busy: true
     };
     Request('https://api.punkapi.com/v2/beers', (error, response, body) => {
+      if (error) return;
       this.setState({
         beers: JSON.parse(body),
         busy: false
