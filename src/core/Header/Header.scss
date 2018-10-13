@@ -16,6 +16,9 @@
       border: 1px solid $brewdog-grey;
       padding: $smallest-margin $smaller-margin;
       margin-right: $small-margin;
+      &:hover {
+        color: $brewdog-white;
+      }
       &.active {
         color: $brewdog-white;
         border-color: $brewdog-white;
