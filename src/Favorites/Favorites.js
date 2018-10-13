@@ -3,6 +3,7 @@ import BeerCard from "../Shared/BeerCard/BeerCard";
 import "./Favorites.scss";
 import Request from "request";
 import BeerCounter from "../Shared/BeerCounter/BeerCounter";
+import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 
 class Favorites extends Component {
   constructor(props) {
@@ -30,10 +31,12 @@ class Favorites extends Component {
   render() {
     return (
       <div className="favorites">
-        <div className="favorites__total"><BeerCounter value={this.state.favoriteBeers.length}/></div>
-        <div className="favorites__list">
-          {this.state.favoriteBeers.map(beer => <BeerCard key={beer.id} onStarChange={this.onStarChange} beer={beer}/>)}
-        </div>
+        {this.state.busy ? <LoadingSpinner/> : <>
+          <div className="favorites__total"><BeerCounter value={this.state.favoriteBeers.length}/></div>
+          <div className="favorites__list">
+            {this.state.favoriteBeers.map(beer => <BeerCard key={beer.id} onStarChange={this.onStarChange} beer={beer}/>)}
+          </div>
+        </>}
       </div>
     );
   }
