@@ -4,6 +4,7 @@
   height: 80px;
   background-color: $brewdog-black;
   &__links {
+    padding: 0 $small-margin;
     margin: 0 auto;
     height: 100%;
     display: flex;

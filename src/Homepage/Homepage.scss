@@ -11,6 +11,7 @@
     width: 100%;
     max-width: $content-max-width;
     margin: 0 auto;
+    padding: 0 $small-margin;
     &__header {
       color: $brewdog-grey;
       font-weight: $font-weight-bold;

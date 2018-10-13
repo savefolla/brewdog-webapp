@@ -4,6 +4,7 @@
   width: 100%;
   max-width: $content-max-width;
   margin: 0 auto;
+  padding: 0 $small-margin;
   &__total {
     margin: $medium-margin 0 $small-margin;
     color: $brewdog-grey;
