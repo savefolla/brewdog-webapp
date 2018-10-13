@@ -8,12 +8,18 @@
     background-color: $brewdog-black;
     display: flex;
     align-items: center;
+    @media (max-width: 767px) {
+      height: unset;
+    }
     &__container {
       display: flex;
       width: 100%;
       max-width: $content-max-width;
       margin: 0 auto;
       padding: 0 $small-margin;
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
       input {
         width: 100%;
         border: none;
@@ -22,6 +28,9 @@
         font-size: 100%;
         color: white;
         padding: $smaller-margin 0;
+        @media (max-width: 767px) {
+          margin-bottom: $small-margin;
+        }
         &:focus {
           border-color: white;
         }
