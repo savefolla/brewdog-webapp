@@ -17,7 +17,8 @@
       padding: $smallest-margin $smaller-margin;
       margin-right: $small-margin;
       &.active {
-        opacity: 1;
+        color: $brewdog-white;
+        border-color: $brewdog-white;
       }
       &:last-child {
         margin-right: 0;
