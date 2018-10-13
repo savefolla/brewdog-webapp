@@ -4,6 +4,7 @@ import "./Homepage.scss";
 import Request from 'request';
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import BeerCounter from "../Shared/BeerCounter/BeerCounter";
+import {DebounceInput} from 'react-debounce-input';
 
 class Homepage extends Component {
   constructor(props) {
@@ -57,14 +58,14 @@ class Homepage extends Component {
         <div className='homepage__filters'>
           <div className='homepage__filters__container'>
             <div className='homepage__filters__container__name'>
-              <input name='name' placeholder='Filtra per nome o abbinamento' onChange={this.handleChange} />
+              <DebounceInput debounceTimeout={300} name='name' placeholder='Filtra per nome o abbinamento' onChange={this.handleChange} />
             </div>
             <div className='homepage__filters__container__alcohol'>
               <div>Gradazione alcolica (da - a)</div>
               <div>
-                <input name='from' placeholder='Da' onChange={this.handleChange} />
+                <DebounceInput debounceTimeout={300} name='from' placeholder='Da' onChange={this.handleChange} />
                 <span className='homepage__filters__container__alcohol__space'></span>
-                <input name='to' placeholder='A' onChange={this.handleChange} />
+                <DebounceInput debounceTimeout={300} name='to' placeholder='A' onChange={this.handleChange} />
               </div>
             </div>
           </div>
