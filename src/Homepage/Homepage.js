@@ -11,6 +11,8 @@ class Homepage extends Component {
       beers: [],
       busy: true
     };
+  }
+  componentDidMount() {
     Request('https://api.punkapi.com/v2/beers', (error, response, body) => {
       if (error) return;
       this.setState({
@@ -33,7 +35,7 @@ class Homepage extends Component {
             </div>*/}
           </div>
           <div className='homepage__table__list'>
-            {this.state.beers.map(beer => <BeerCard key={beer.id} starred={false} beer={beer}/>)}
+            {this.state.beers.map(beer => <BeerCard key={beer.id} beer={beer}/>)}
           </div>
         </div>}
       </div>
