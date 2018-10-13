@@ -2,8 +2,13 @@
 
 .details {
   &__top {
+    position: relative;
     background-color: $brewdog-white;
+    height: 60vh;
     &__name {
+      height: 50%;
+      display: flex;
+      align-items: center;
       background-color: $brewdog-black;
       &__container {
         width: 100%;
@@ -13,26 +18,63 @@
       &__title {
         color: $brewdog-yellow;
         width: 60%;
-        padding: $big-margin $small-margin $smaller-margin;
+        padding: 0 $small-margin $smaller-margin;
         font-size: $font-size-biggest;
         text-transform: uppercase;
         font-weight: $font-weight-bold;
       }
       &__tagline {
+        width: 60%;
         color: $brewdog-grey;
-        padding: 0 $small-margin $big-margin;
+        padding: 0 $small-margin 0;
         font-size: $font-size-bigger;
 
       }
     }
     &__description {
+      height: 50%;
+      display: flex;
+      align-items: center;
       color: $brewdog-grey;
       width: 100%;
       max-width: $content-max-width;
       margin: 0 auto;
-      padding: $big-margin $small-margin;
+      padding: 0 $small-margin;
       &__container {
         width: 60%;
+      }
+    }
+    &__image {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      pointer-events: none;
+      &__container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        max-width: $content-max-width;
+        margin: 0 auto;
+        img {
+          max-width: 200px;
+          max-height: 300px;
+          z-index: 1;
+        }
+        &__circle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          max-height: 40vh;
+          width: 200px;
+          height: 200px;
+          background-color: $brewdog-yellow;
+          border-radius: 50%;
+          margin-right: 0;
+        }
       }
     }
   }

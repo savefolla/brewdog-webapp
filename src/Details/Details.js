@@ -47,6 +47,13 @@ class Details extends Component {
             <div className='details__top__description'>
               <div className='details__top__description__container'>{this.state.beer.description}</div>
             </div>
+            <div className='details__top__image'>
+              <div className='details__top__image__container'>
+                <div className='details__top__image__container__circle'>
+                  <img alt='' src={this.state.beer.image_url} />
+                </div>
+              </div>
+            </div>
           </div>
           <div className='details__center'>
             <div className='details__center__container'>
