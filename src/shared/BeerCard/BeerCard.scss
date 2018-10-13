@@ -9,6 +9,9 @@
   align-items: center;
   padding: 0 $small-margin;
   cursor: pointer;
+  @media (max-width: 767px) {
+    height: 70px;
+  }
   &:hover {
     background-color: $brewdog-yellow;
     color: $brewdog-white;

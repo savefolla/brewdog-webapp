@@ -112,6 +112,7 @@
     }
     &__foods {
       display: flex;
+      flex-wrap: wrap;
       &__food {
         color: $brewdog-grey;
         background-color: $brewdog-white;
@@ -119,14 +120,26 @@
         align-items: center;
         justify-content: center;
         padding: $medium-margin;
-        $size: 14vw;
+        $size: 13vw;
         width: $size;
         height: $size;
-        margin: 0 $small-margin $smaller-margin 0;
-        box-shadow: $smaller-margin $smaller-margin $brewdog-yellow;
-        &:last-child {
-          margin-right: 0;
+        @media (max-width: 1024px) {
+          $size: 20vw;
+          width: $size;
+          height: $size;
         }
+        @media (max-width: 767px) {
+          $size: 30vw;
+          width: $size;
+          height: $size;
+        }
+        @media (max-width: 414px) {
+          $size: 90vw;
+          width: $size;
+          height: $size;
+        }
+        margin: 0 $small-margin $small-margin 0;
+        box-shadow: $smaller-margin $smaller-margin $brewdog-yellow;
       }
     }
   }
