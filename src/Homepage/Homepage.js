@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import BeerCard from "../Shared/BeerCard/BeerCard";
+import BeerCard from "../shared/BeerCard/BeerCard";
 import "./Homepage.scss";
 import Request from 'request';
-import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
-import BeerCounter from "../Shared/BeerCounter/BeerCounter";
+import LoadingSpinner from "../shared/LoadingSpinner/LoadingSpinner";
+import BeerCounter from "../shared/BeerCounter/BeerCounter";
 import {DebounceInput} from 'react-debounce-input';
 
 class Homepage extends Component {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './BeerCard.scss';
 import {withRouter} from "react-router";
+import {onBeerStarClick} from "../helpers/helpers";
 
 class BeerCard extends Component {
   constructor(props) {
@@ -15,15 +16,7 @@ class BeerCard extends Component {
     this.props.history.push(`/details/${this.props.beer.id}`);
   }
   onStarClick(event) {
-    let favoriteBeersIds = JSON.parse(localStorage.getItem('favoriteBeersIds'));
-    if (favoriteBeersIds) {
-      const index = favoriteBeersIds.indexOf(this.props.beer.id);
-      if (index === -1) favoriteBeersIds.push(this.props.beer.id);
-      else favoriteBeersIds.splice(index, 1);
-      localStorage.setItem('favoriteBeersIds', JSON.stringify(favoriteBeersIds));
-    } else {
-      localStorage.setItem('favoriteBeersIds', JSON.stringify([this.props.beer.id]));
-    }
+    onBeerStarClick(this.props.beer.id);
     this.setState(state => ({
       starred: !state.starred
     }));

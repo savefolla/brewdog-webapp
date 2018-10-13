@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import BeerCard from "../Shared/BeerCard/BeerCard";
+import BeerCard from "../shared/BeerCard/BeerCard";
 import "./Favorites.scss";
 import Request from "request";
-import BeerCounter from "../Shared/BeerCounter/BeerCounter";
-import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
+import BeerCounter from "../shared/BeerCounter/BeerCounter";
+import LoadingSpinner from "../shared/LoadingSpinner/LoadingSpinner";
 
 class Favorites extends Component {
   constructor(props) {

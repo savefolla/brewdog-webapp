@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Homepage from "./Homepage/Homepage";
 import Details from "./Details/Details";
 import Favorites from "./Favorites/Favorites";
-import Header from "./Core/Header/Header";
+import Header from "./core/Header/Header";
 
 class App extends Component {
   render() {

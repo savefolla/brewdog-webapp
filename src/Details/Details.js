@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import Request from "request";
-import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "../shared/LoadingSpinner/LoadingSpinner";
 
 import './Details.scss';
+import {onBeerStarClick} from "../shared/helpers/helpers";
 
 class Details extends Component {
   constructor(props) {
     super(props);
     this.state = {
       beer: {},
+      starred: false,
       busy: true
     };
     this.getBeer();
+    this.onStarClick = this.onStarClick.bind(this);
   }
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id && this.props.match.params.id === 'random') {
@@ -28,10 +31,17 @@ class Details extends Component {
       const beer = JSON.parse(body)[0];
       this.setState({
         beer,
+        starred: localStorage.getItem('favoriteBeersIds') && localStorage.getItem('favoriteBeersIds').includes(beer.id),
         busy: false
       });
       this.props.history.push(`${beer.id}`);
     });
+  }
+  onStarClick() {
+    onBeerStarClick(this.state.beer.id);
+    this.setState(state => ({
+      starred: !state.starred
+    }));
   }
   render() {
     return (
@@ -40,7 +50,12 @@ class Details extends Component {
           <div className='details__top'>
             <div className='details__top__name'>
               <div className='details__top__name__container'>
-                <div className='details__top__name__title'>{this.state.beer.name}</div>
+                <div className='details__top__name__title'>
+                  <div className='details__top__name__title__star' onClick={this.onStarClick}>
+                    {this.state.starred ? <i className="material-icons">star</i> : <i className="material-icons">star_border</i>}
+                  </div>
+                  {this.state.beer.name}
+                  </div>
                 <div className='details__top__name__tagline'>{this.state.beer.tagline}</div>
               </div>
             </div>

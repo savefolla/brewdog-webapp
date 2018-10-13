@@ -16,12 +16,18 @@
         margin: 0 auto;
       }
       &__title {
+        position: relative;
         color: $brewdog-yellow;
         width: 60%;
         padding: 0 $small-margin $smaller-margin;
         font-size: $font-size-biggest;
         text-transform: uppercase;
         font-weight: $font-weight-bold;
+        &__star {
+          cursor: pointer;
+          position: absolute;
+          left: -$medium-margin;
+        }
       }
       &__tagline {
         width: 60%;
