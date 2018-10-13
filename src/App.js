@@ -7,6 +7,11 @@ import Favorites from "./Favorites/Favorites";
 import Header from "./core/Header/Header";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    if (!localStorage.getItem('favoriteBeersIds')) localStorage.setItem('favoriteBeersIds', '[]');
+  }
+
   render() {
     return (
       <BrowserRouter>

@@ -6,8 +6,9 @@ import {onBeerStarClick} from "../helpers/helpers";
 class BeerCard extends Component {
   constructor(props) {
     super(props);
+    const favoriteBeersIds = JSON.parse(localStorage.getItem('favoriteBeersIds'));
     this.state = {
-      starred: JSON.parse(localStorage.getItem('favoriteBeersIds')).indexOf(this.props.beer.id) !== -1
+      starred: favoriteBeersIds && favoriteBeersIds.indexOf(this.props.beer.id) !== -1
     };
     this.navigate = this.navigate.bind(this);
     this.onStarClick = this.onStarClick.bind(this);
