@@ -49,12 +49,13 @@
     }
   }
   &__table {
-    // TODO make mix or class of the following 4 lines cause they are used quite a lot
+    // TODO make mixin or class of the following 4 lines cause they are used quite a lot
     width: 100%;
     max-width: $content-max-width;
     margin: 0 auto;
     padding: 0 $small-margin;
     &__header {
+      // todo make mixin for this too maybe
       color: $brewdog-grey;
       font-weight: $font-weight-bold;
       margin: $medium-margin 0 $small-margin;

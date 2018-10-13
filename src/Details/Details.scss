@@ -1,0 +1,50 @@
+@import "../assets/scss/settings";
+
+.details {
+  &__top {
+    height: 300px;
+    background-color: $brewdog-white;
+  }
+  &__center {
+    color: $brewdog-white;
+    background-color: $brewdog-yellow;
+    &__container {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      max-width: $content-max-width;
+      margin: 0 auto;
+      & > div {
+        padding: $small-margin;
+      }
+    }
+  }
+  &__bottom {
+    width: 100%;
+    max-width: $content-max-width;
+    margin: 0 auto;
+    &__header {
+      color: $brewdog-grey;
+      font-weight: $font-weight-bold;
+      margin: $medium-margin 0 $small-margin;
+    }
+    &__foods {
+      display: flex;
+      &__food {
+        color: $brewdog-grey;
+        background-color: $brewdog-white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $medium-margin;
+        width: 15vw;
+        height: 15vw;
+        margin: 0 $small-margin $smaller-margin 0;
+        box-shadow: $smaller-margin $smaller-margin $brewdog-yellow;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
