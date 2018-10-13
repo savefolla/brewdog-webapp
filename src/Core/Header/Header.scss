@@ -11,12 +11,11 @@
     align-items: center;
     max-width: $content-max-width;
     a {
-      color: $brewdog-white;
+      color: $brewdog-grey;
       text-decoration: none;
-      border: 1px solid $brewdog-white;
+      border: 1px solid $brewdog-grey;
       padding: $smallest-margin $smaller-margin;
       margin-right: $small-margin;
-      opacity: .7;
       &.active {
         opacity: 1;
       }

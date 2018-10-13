@@ -25,7 +25,21 @@ class Homepage extends Component {
   render() {
     return (
       <div className='homepage'>
-        <div className='homepage__filters'></div>
+        <div className='homepage__filters'>
+          <div className='homepage__filters__container'>
+            <div className='homepage__filters__container__name'>
+              <input placeholder='Filtra per nome o abbinamento' />
+            </div>
+            <div className='homepage__filters__container__alcohol'>
+              <div>Gradazione alcolica (da - a)</div>
+              <div>
+                <input placeholder='Da' />
+                <span className='homepage__filters__container__alcohol__space'></span>
+                <input placeholder='A' />
+              </div>
+            </div>
+          </div>
+        </div>
         {this.state.busy ? <LoadingSpinner /> : <div className='homepage__table'>
           <div className='homepage__table__header'>
             <div className='homepage__table__header__total'><BeerCounter value={this.state.beers.length}/></div>

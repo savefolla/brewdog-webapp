@@ -6,8 +6,50 @@
     height: 100px;
     width: 100%;
     background-color: $brewdog-black;
+    display: flex;
+    align-items: center;
+    &__container {
+      display: flex;
+      width: 100%;
+      max-width: $content-max-width;
+      margin: 0 auto;
+      padding: 0 $small-margin;
+      input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $brewdog-grey-lighter;
+        background: transparent;
+        font-size: 100%;
+        color: white;
+        padding: $smaller-margin 0;
+        &:focus {
+          border-color: white;
+        }
+      }
+      &__name {
+        padding-right: $medium-margin;
+        flex-grow: 1;
+        display: flex;
+        input {
+          margin-top: auto;
+        }
+      }
+      &__alcohol {
+        & > div:first-child {
+          color: $brewdog-grey-lighter;
+          font-size: $font-size-smaller;
+        }
+        & > div:last-child {
+          display: flex;
+        }
+        &__space {
+          width: $small-margin;
+        }
+      }
+    }
   }
   &__table {
+    // TODO make mix or class of the following 4 lines cause they are used quite a lot
     width: 100%;
     max-width: $content-max-width;
     margin: 0 auto;
