@@ -37,7 +37,17 @@ class Details extends Component {
     return (
       <div className='details'>
         {this.state.busy ? <LoadingSpinner/> : <>
-          <div className='details__top'></div>
+          <div className='details__top'>
+            <div className='details__top__name'>
+              <div className='details__top__name__container'>
+                <div className='details__top__name__title'>{this.state.beer.name}</div>
+                <div className='details__top__name__tagline'>{this.state.beer.tagline}</div>
+              </div>
+            </div>
+            <div className='details__top__description'>
+              <div className='details__top__description__container'>{this.state.beer.description}</div>
+            </div>
+          </div>
           <div className='details__center'>
             <div className='details__center__container'>
               {this.state.beer.abv && <div>ABV: {this.state.beer.abv}%</div>}

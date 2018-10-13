@@ -2,8 +2,39 @@
 
 .details {
   &__top {
-    height: 300px;
     background-color: $brewdog-white;
+    &__name {
+      background-color: $brewdog-black;
+      &__container {
+        width: 100%;
+        max-width: $content-max-width;
+        margin: 0 auto;
+      }
+      &__title {
+        color: $brewdog-yellow;
+        width: 60%;
+        padding: $big-margin $small-margin $smaller-margin;
+        font-size: $font-size-biggest;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+      }
+      &__tagline {
+        color: $brewdog-grey;
+        padding: 0 $small-margin $big-margin;
+        font-size: $font-size-bigger;
+
+      }
+    }
+    &__description {
+      color: $brewdog-grey;
+      width: 100%;
+      max-width: $content-max-width;
+      margin: 0 auto;
+      padding: $big-margin $small-margin;
+      &__container {
+        width: 60%;
+      }
+    }
   }
   &__center {
     color: $brewdog-white;
@@ -14,6 +45,7 @@
       width: 100%;
       max-width: $content-max-width;
       margin: 0 auto;
+      padding: 0 $small-margin;
       & > div {
         padding: $small-margin;
       }
@@ -23,6 +55,7 @@
     width: 100%;
     max-width: $content-max-width;
     margin: 0 auto;
+    padding: 0 $small-margin;
     &__header {
       color: $brewdog-grey;
       font-weight: $font-weight-bold;
