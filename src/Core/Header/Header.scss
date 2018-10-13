@@ -30,6 +30,8 @@
     &__logo {
       color: $brewdog-yellow;
       font-size: $font-size-biggest;
+      text-transform: uppercase;
+      font-weight: $font-weight-bold;
     }
   }
 }

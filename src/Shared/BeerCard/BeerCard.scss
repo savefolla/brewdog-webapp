@@ -26,5 +26,8 @@
   &__star {
     color: $brewdog-yellow;
     margin-left: $small-margin;
+    .material-icons {
+      font-size: 30px;
+    }
   }
 }
