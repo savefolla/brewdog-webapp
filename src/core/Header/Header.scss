@@ -35,6 +35,26 @@
       font-size: $font-size-biggest;
       text-transform: uppercase;
       font-weight: $font-weight-bold;
+      @media (max-width: 767px) {
+        padding: $smallest-margin $smaller-margin;
+      }
+    }
+    &--desktop {
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+    &--mobile {
+      @media (min-width: 768px) {
+        display: none;
+      }
+      img {
+        width: 30px;
+      }
+      a {
+        border: none;
+        color: white;
+      }
     }
   }
 }
