@@ -3,6 +3,7 @@ import BeerCard from "../Shared/BeerCard/BeerCard";
 import "./Homepage.scss";
 import Request from 'request';
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
+import BeerCounter from "../Shared/BeerCounter/BeerCounter";
 
 class Homepage extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Homepage extends Component {
         <div className='homepage__filters'></div>
         {this.state.busy ? <LoadingSpinner /> : <div className='homepage__table'>
           <div className='homepage__table__header'>
-            <div className='homepage__table__header__total'>{this.state.beers.length} birre</div>
+            <div className='homepage__table__header__total'><BeerCounter value={this.state.beers.length}/></div>
             {/*<div className='homepage__table__header__paginator'>
               <div className='homepage__table__header__paginator__page homepage__table__header__paginator__page--selected'>1</div>
               <div className='homepage__table__header__paginator__page'>2</div>

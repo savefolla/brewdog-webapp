@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BeerCard from "../Shared/BeerCard/BeerCard";
 import "./Favorites.scss";
 import Request from "request";
+import BeerCounter from "../Shared/BeerCounter/BeerCounter";
 
 class Favorites extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Favorites extends Component {
   render() {
     return (
       <div className="favorites">
-        <div className="favorites__total">{this.state.favoriteBeers.length} {this.state.favoriteBeers.length === 1 ? 'birra' : 'birre'}</div>
+        <div className="favorites__total"><BeerCounter value={this.state.favoriteBeers.length}/></div>
         <div className="favorites__list">
           {this.state.favoriteBeers.map(beer => <BeerCard key={beer.id} onStarChange={this.onStarChange} beer={beer}/>)}
         </div>
