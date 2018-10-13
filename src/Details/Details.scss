@@ -5,8 +5,14 @@
     position: relative;
     background-color: $brewdog-white;
     height: 70vh;
+    @media (max-width: 767px) {
+      height: unset;
+    }
     &__name {
       height: 50%;
+      @media (max-width: 767px) {
+        height: unset;
+      }
       display: flex;
       align-items: center;
       background-color: $brewdog-black;
@@ -14,11 +20,17 @@
         width: 100%;
         max-width: $content-max-width;
         margin: 0 auto;
+        @media (max-width: 767px) {
+          padding: $big-margin 0;
+        }
       }
       &__title {
         position: relative;
         color: $brewdog-yellow;
         width: 60%;
+        @media (max-width: 767px) {
+          width: unset;
+        }
         padding: 0 $small-margin $smaller-margin;
         font-size: $font-size-biggest;
         text-transform: uppercase;
@@ -27,10 +39,17 @@
           cursor: pointer;
           position: absolute;
           left: -$medium-margin;
+          @media (max-width: 767px) {
+            left: calc(50vw - #{$font-size-icons} / 2);
+            top: -$mediumer-margin;
+          }
         }
       }
       &__tagline {
         width: 60%;
+        @media (max-width: 767px) {
+          width: unset;
+        }
         color: $brewdog-grey;
         padding: 0 $small-margin 0;
         font-size: $font-size-bigger;
@@ -39,6 +58,9 @@
     }
     &__description {
       height: 50%;
+      @media (max-width: 767px) {
+        height: unset;
+      }
       display: flex;
       align-items: center;
       color: $brewdog-grey;
@@ -48,6 +70,10 @@
       padding: 0 $small-margin;
       &__container {
         width: 60%;
+        @media (max-width: 767px) {
+          width: unset;
+          padding: $medium-margin 0;
+        }
       }
     }
     &__image {
@@ -57,10 +83,18 @@
       right: 0;
       position: absolute;
       pointer-events: none;
+      @media (max-width: 767px) {
+        position: relative;
+        height: calc(300px + 2 * #{$medium-margin});
+        pointer-events: auto;
+      }
       &__container {
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        @media (max-width: 767px) {
+          justify-content: center;
+        }
         width: 100%;
         height: 100%;
         max-width: $content-max-width;
