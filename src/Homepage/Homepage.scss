@@ -13,10 +13,7 @@
     }
     &__container {
       display: flex;
-      width: 100%;
-      max-width: $content-max-width;
-      margin: 0 auto;
-      padding: 0 $small-margin;
+      @include padded-container;
       @media (max-width: 767px) {
         flex-direction: column;
       }
@@ -58,16 +55,9 @@
     }
   }
   &__table {
-    // TODO make mixin or class of the following 4 lines cause they are used quite a lot
-    width: 100%;
-    max-width: $content-max-width;
-    margin: 0 auto;
-    padding: 0 $small-margin;
+    @include padded-container;
     &__header {
-      // todo make mixin for this too maybe
-      color: $brewdog-grey;
-      font-weight: $font-weight-bold;
-      margin: $medium-margin 0 $small-margin;
+      @include header();
       display: flex;
       &__paginator {
         display: flex;
