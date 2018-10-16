@@ -140,8 +140,11 @@
         justify-content: center;
         padding: $medium-margin;
         $size: 13vw;
+        $max-size: 240px;
         width: $size;
         height: $size;
+        max-width: $max-size;
+        max-height: $max-size;
         @media (max-width: 1024px) {
           $size: 20vw;
           width: $size;
