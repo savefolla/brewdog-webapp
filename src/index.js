@@ -16,6 +16,7 @@ window.addEventListener('load', function(event) {
       return cache.addAll(
         [
           'https://fonts.googleapis.com/icon?family=Material+Icons',
+          'https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
           'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700'
         ]
       );
