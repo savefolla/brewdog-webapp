@@ -10,3 +10,14 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.register();
+
+window.addEventListener('load', function(event) {
+    caches.open('brewdog-cache').then(function(cache) {
+      return cache.addAll(
+        [
+          'https://fonts.googleapis.com/icon?family=Material+Icons',
+          'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700'
+        ]
+      );
+    })
+});
