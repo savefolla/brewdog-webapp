@@ -1,0 +1,17 @@
+
+@mixin container() {
+  width: 100%;
+  max-width: $content-max-width;
+  margin: 0 auto;
+}
+
+@mixin padded-container() {
+  @include container;
+  padding: 0 $small-margin;
+}
+
+@mixin header() {
+  margin: $medium-margin 0 $small-margin;
+  color: $brewdog-grey;
+  font-weight: $font-weight-bold;
+}
