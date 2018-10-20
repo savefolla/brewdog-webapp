@@ -38,8 +38,8 @@
           cursor: pointer;
           position: absolute;
           left: -$medium-margin;
-          @media (max-width: 767px) {
-            left: calc(50vw - #{$font-size-icons} / 2);
+          @media (max-width: 900px) {
+            left: $small-margin;
             top: -$mediumer-margin;
           }
         }
