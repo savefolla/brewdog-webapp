@@ -72,8 +72,10 @@
       }
     }
     &__list {
-      & > * {
-        margin-bottom: $smaller-margin;
+      & > div {
+        & > * {
+          margin-bottom: $smaller-margin;
+        }
       }
     }
   }

@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import BeerCard from "../shared/BeerCard/BeerCard";
 import "./Homepage.scss";
 import Request from 'request';
 import LoadingSpinner from "../shared/LoadingSpinner/LoadingSpinner";
 import BeerCounter from "../shared/BeerCounter/BeerCounter";
 import {DebounceInput} from 'react-debounce-input';
+import InfiniteScroll from 'react-infinite-scroller';
 
 class Homepage extends Component {
   constructor(props) {
@@ -14,63 +15,86 @@ class Homepage extends Component {
       query: {
         name: '',
         from: '',
-        to: ''
+        to: '',
+        page: 1,
+        per_page: 25
       },
-      busy: true
+      hasMore: true,
+      busy: true,
+      appendingBeers: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.fetchBeers = this.fetchBeers.bind(this);
+    this.loadMoreBeers = this.loadMoreBeers.bind(this);
   }
+
   componentDidMount() {
     this.fetchBeers(this.state.query);
   }
+
   handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
     this.setState(state => {
       let query = state.query;
+      query.page = 1;
       query[name] = value;
       this.fetchBeers(query);
-      return { query, busy: true }
+      return {query, busy: true, appendingBeers: false}
     });
   }
-  fetchBeers(query) {
+
+  fetchBeers(query, append = false) {
     // per_page max = 80, however we don't know how many beers there are in total
-    Request(`https://api.punkapi.com/v2/beers?page=1&per_page=80&${this.composeQuery(query)}`, (error, response, body) => {
+    Request(`https://api.punkapi.com/v2/beers?${this.composeQuery(query)}`, (error, response, body) => {
       if (error) return;
-      this.setState({
-        beers: JSON.parse(body),
-        busy: false
-      });
+      this.setState(state => ({
+        beers: append ? [...state.beers, ...JSON.parse(body)] : JSON.parse(body),
+        busy: false,
+        hasMore: JSON.parse(body).length === state.query.per_page, // either i am on the last page or there are more
+        appendingBeers: false
+      }));
     });
   }
+
+  loadMoreBeers(page) {
+    this.setState(state => {
+      let query = state.query;
+      query.page = page;
+      this.fetchBeers(query, true);
+      return {query, hasMore: false, appendingBeers: true}
+    });
+  }
+
   composeQuery(query) {
-    let queryString = '';
+    let queryString = `page=${query.page}&per_page=${query.per_page}&`;
     if (query.name) queryString = queryString.concat(`beer_name=${query.name}&`);
-    // if (query.name) queryString = queryString.concat(`beer_name=${query.name}|food=${query.name}&`);
     if (query.from) queryString = queryString.concat(`abv_gt=${query.from}&`);
     if (query.to) queryString = queryString.concat(`abv_lt=${query.to}`);
     return queryString;
   }
+
   render() {
     return (
       <div className='homepage'>
         <div className='homepage__filters'>
           <div className='homepage__filters__container'>
             <div className='homepage__filters__container__name'>
-              <DebounceInput debounceTimeout={300} name='name' placeholder='Filtra per nome o abbinamento' onChange={this.handleChange} />
+              <DebounceInput debounceTimeout={300} name='name'
+                             placeholder='Filtra per nome o abbinamento'
+                             onChange={this.handleChange}/>
             </div>
             <div className='homepage__filters__container__alcohol'>
               <div>Gradazione alcolica (da - a)</div>
               <div>
-                <DebounceInput debounceTimeout={300} name='from' placeholder='Da' onChange={this.handleChange} />
+                <DebounceInput debounceTimeout={300} name='from' placeholder='Da' onChange={this.handleChange}/>
                 <span className='homepage__filters__container__alcohol__space'></span>
-                <DebounceInput debounceTimeout={300} name='to' placeholder='A' onChange={this.handleChange} />
+                <DebounceInput debounceTimeout={300} name='to' placeholder='A' onChange={this.handleChange}/>
               </div>
             </div>
           </div>
         </div>
-        {this.state.busy ? <LoadingSpinner /> : <div className='homepage__table'>
+        {this.state.busy ? <LoadingSpinner/> : <div className='homepage__table'>
           <div className='homepage__table__header'>
             <div className='homepage__table__header__total'><BeerCounter value={this.state.beers.length}/></div>
             {/*<div className='homepage__table__header__paginator'>
@@ -80,7 +104,14 @@ class Homepage extends Component {
             </div>*/}
           </div>
           <div className='homepage__table__list'>
-            {this.state.beers.map(beer => <BeerCard key={beer.id} beer={beer}/>)}
+            <InfiniteScroll
+              pageStart={1}
+              loadMore={this.loadMoreBeers}
+              hasMore={this.state.hasMore}
+              threshold={500}>
+              {this.state.beers.map(beer => <BeerCard key={beer.id} beer={beer}/>)}
+            </InfiniteScroll>
+            {this.state.appendingBeers && <LoadingSpinner/>}
           </div>
         </div>}
       </div>
