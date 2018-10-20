@@ -97,11 +97,6 @@ class Homepage extends Component {
         {this.state.busy ? <LoadingSpinner/> : <div className='homepage__table'>
           <div className='homepage__table__header'>
             <div className='homepage__table__header__total'><BeerCounter value={this.state.beers.length}/></div>
-            {/*<div className='homepage__table__header__paginator'>
-              <div className='homepage__table__header__paginator__page homepage__table__header__paginator__page--selected'>1</div>
-              <div className='homepage__table__header__paginator__page'>2</div>
-              <div className='homepage__table__header__paginator__page'>3</div>
-            </div>*/}
           </div>
           <div className='homepage__table__list'>
             <InfiniteScroll
