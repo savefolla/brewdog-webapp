@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/brewdog-webapp/precache-manifest.2858a1da75b2040dabee927bc6fd66e2.js"
+  "/brewdog-webapp/precache-manifest.e03b41c996a952742d013cc0c5ce488a.js"
 );
 
 workbox.clientsClaim();
