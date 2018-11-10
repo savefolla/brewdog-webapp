@@ -1,0 +1,168 @@
+@import "../assets/scss/settings";
+@import "../assets/scss/mixins";
+
+.details {
+  &__top {
+    position: relative;
+    background-color: $brewdog-white;
+    height: 70vh;
+    @media (max-width: 767px) {
+      height: unset;
+    }
+    &__name {
+      height: 50%;
+      @media (max-width: 767px) {
+        height: unset;
+      }
+      display: flex;
+      align-items: center;
+      background-color: $brewdog-black;
+      &__container {
+        @include container;
+        @media (max-width: 767px) {
+          padding: $big-margin 0;
+        }
+      }
+      &__title {
+        position: relative;
+        color: $brewdog-yellow;
+        width: 60%;
+        @media (max-width: 767px) {
+          width: unset;
+        }
+        padding: 0 $small-margin $smaller-margin;
+        font-size: $font-size-biggest;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+        &__star {
+          cursor: pointer;
+          position: absolute;
+          left: -$medium-margin;
+          @media (max-width: 900px) {
+            left: $small-margin;
+            top: -$mediumer-margin;
+          }
+        }
+      }
+      &__tagline {
+        width: 60%;
+        @media (max-width: 767px) {
+          width: unset;
+        }
+        color: $brewdog-grey;
+        padding: 0 $small-margin 0;
+        font-size: $font-size-bigger;
+
+      }
+    }
+    &__description {
+      height: 50%;
+      @media (max-width: 767px) {
+        height: unset;
+      }
+      display: flex;
+      align-items: center;
+      color: $brewdog-grey;
+      @include padded-container;
+      &__container {
+        width: 60%;
+        @media (max-width: 767px) {
+          width: unset;
+          padding: $medium-margin 0;
+        }
+      }
+    }
+    &__image {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      pointer-events: none;
+      @media (max-width: 767px) {
+        position: relative;
+        height: calc(300px + 2 * #{$medium-margin});
+        pointer-events: auto;
+      }
+      &__container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        @media (max-width: 767px) {
+          justify-content: center;
+        }
+        height: 100%;
+        @include padded-container;
+        img {
+          max-width: 200px;
+          max-height: 300px;
+          z-index: 1;
+        }
+        &__circle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          max-height: 40vh;
+          width: 200px;
+          height: 200px;
+          background-color: $brewdog-yellow;
+          border-radius: 50%;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  &__center {
+    color: $brewdog-white;
+    background-color: $brewdog-yellow;
+    &__container {
+      display: flex;
+      justify-content: space-evenly;
+      @include padded-container;
+      & > div {
+        padding: $small-margin;
+      }
+    }
+  }
+  &__bottom {
+    @include padded-container;
+    &__header {
+      @include header();
+    }
+    &__foods {
+      display: flex;
+      flex-wrap: wrap;
+      &__food {
+        color: $brewdog-grey;
+        background-color: $brewdog-white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $medium-margin;
+        $size: 13vw;
+        $max-size: 240px;
+        width: $size;
+        height: $size;
+        max-width: $max-size;
+        max-height: $max-size;
+        @media (max-width: 1024px) {
+          $size: 20vw;
+          width: $size;
+          height: $size;
+        }
+        @media (max-width: 767px) {
+          $size: 30vw;
+          width: $size;
+          height: $size;
+        }
+        @media (max-width: 414px) {
+          $size: 90vw;
+          width: $size;
+          height: $size;
+        }
+        margin: 0 $small-margin $small-margin 0;
+        box-shadow: $smaller-margin $smaller-margin $brewdog-yellow;
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import "../../assets/scss/settings";
+
+.header {
+  height: 80px;
+  background-color: $brewdog-black;
+  &__links {
+    padding: 0 $small-margin;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    max-width: $content-max-width;
+    a {
+      color: $brewdog-grey;
+      text-decoration: none;
+      border: 1px solid $brewdog-grey;
+      padding: $smallest-margin $smaller-margin;
+      margin-right: $small-margin;
+      &:hover {
+        color: $brewdog-white;
+      }
+      &.active {
+        color: $brewdog-white;
+        border-color: $brewdog-white;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    & > *:first-child {
+      margin-right: auto;
+    }
+    &__logo {
+      color: $brewdog-yellow;
+      font-size: $font-size-biggest;
+      text-transform: uppercase;
+      font-weight: $font-weight-bold;
+      @media (max-width: 767px) {
+        padding: $smallest-margin $smaller-margin;
+      }
+    }
+    &--desktop {
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+    &--mobile {
+      @media (min-width: 768px) {
+        display: none;
+      }
+      img {
+        width: 30px;
+      }
+      a {
+        border: none;
+        color: white;
+      }
+    }
+  }
+}

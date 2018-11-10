@@ -1,0 +1,34 @@
+@import "../../assets/scss/settings";
+
+.beer-card {
+  width: 100%;
+  height: 50px;
+  background-color: $brewdog-white;
+  color: $brewdog-grey;
+  display: flex;
+  align-items: center;
+  padding: 0 $small-margin;
+  cursor: pointer;
+  @media (max-width: 767px) {
+    height: 70px;
+  }
+  &:hover {
+    background-color: $brewdog-yellow;
+    color: $brewdog-white;
+    .beer-card__abv {
+      visibility: visible;
+    }
+    .beer-card__star {
+      color: $brewdog-white;
+    }
+  }
+  &__abv {
+    margin-left: auto;
+    visibility: hidden;
+  }
+  &__star {
+    color: $brewdog-yellow;
+    margin-left: $small-margin;
+
+  }
+}

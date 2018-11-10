@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BrowserRouter, Route } from "react-router-dom";
+import Homepage from "./Homepage/Homepage";
+import Details from "./Details/Details";
+import Favorites from "./Favorites/Favorites";
+import Header from "./core/Header/Header";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    if (!localStorage.getItem('favoriteBeersIds')) localStorage.setItem('favoriteBeersIds', '[]');
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <div className="app">
+          <Header/>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/details/:id" component={Details} />
+          <Route path="/favorites" component={Favorites} />
+        </div>
+      </BrowserRouter>
     );
   }
 }

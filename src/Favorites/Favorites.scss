@@ -1,0 +1,14 @@
+@import "../assets/scss/settings";
+@import "../assets/scss/mixins";
+
+.favorites {
+  @include padded-container;
+  &__total {
+    @include header();
+  }
+  &__list {
+    & > * {
+      margin-bottom: $smaller-margin;
+    }
+  }
+}

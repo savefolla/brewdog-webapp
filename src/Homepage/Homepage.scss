@@ -1,0 +1,82 @@
+@import "../assets/scss/settings";
+@import "../assets/scss/mixins";
+
+.homepage {
+  padding-bottom: $medium-margin;
+  &__filters {
+    height: 100px;
+    width: 100%;
+    background-color: $brewdog-black;
+    display: flex;
+    align-items: center;
+    @media (max-width: 767px) {
+      height: unset;
+    }
+    &__container {
+      display: flex;
+      @include padded-container;
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
+      input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $brewdog-grey-lighter;
+        background: transparent;
+        font-size: 100%;
+        color: white;
+        padding: $smaller-margin 0;
+        @media (max-width: 767px) {
+          margin-bottom: $small-margin;
+        }
+        &:focus {
+          border-color: white;
+        }
+      }
+      &__name {
+        padding-right: $medium-margin;
+        flex-grow: 1;
+        display: flex;
+        input {
+          margin-top: auto;
+        }
+      }
+      &__alcohol {
+        & > div:first-child {
+          color: $brewdog-grey-lighter;
+          font-size: $font-size-smaller;
+        }
+        & > div:last-child {
+          display: flex;
+        }
+        &__space {
+          width: $small-margin;
+        }
+      }
+    }
+  }
+  &__table {
+    @include padded-container;
+    &__header {
+      @include header();
+      display: flex;
+      &__paginator {
+        display: flex;
+        margin-left: auto;
+        &__page {
+          margin-left: $smaller-margin;
+          &--selected {
+            color: $brewdog-yellow;
+          }
+        }
+      }
+    }
+    &__list {
+      & > div {
+        & > * {
+          margin-bottom: $smaller-margin;
+        }
+      }
+    }
+  }
+}
